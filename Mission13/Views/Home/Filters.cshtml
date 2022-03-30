@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Home Page";
+}
+@*I made a filters page that prints out just the specific information on each player*@
+
+@model List<Bowler>
+<h1>@ViewBag.Team</h1>
+<h1> Bowlers </h1>
+<div>View our bowlers below</div>
+<div>
+    @*adding the filter to the page*@
+    <div id="types" class="col-3">
+        <vc:teams></vc:teams>
+    </div>
+</div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Middle Initial</th>
+                <th>Last Name</th>
+
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var b in Model)
+            {
+                <tr>
+                    <td>@b.BowlerID</td>
+                    <td>@b.BowlerFirstName</td>
+                    <td>@b.BowlerMiddleInit</td>
+                    <td>@b.BowlerLastName</td>
+                    <td>
+                        <div class="bg-light p-1">
+                            <span class="badge bg-info" style="float:right">Team Id: @b.TeamID</span>
+                        </div>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

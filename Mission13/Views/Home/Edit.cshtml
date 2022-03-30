@@ -1,0 +1,66 @@
+﻿@*form to edit bowlers in the database*@
+
+@model Mission13.Models.Bowler
+
+<h2>Bowler Database</h2>
+<p>Use this form to edit a bowler</p>
+
+<form method="post" asp-controller="Home" asp-action="Edit">
+
+    <div class="form-group">
+
+        <input asp-for="BowlerID" class="form-control" type="hidden" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerFirstName">First Name: </label>
+        <input asp-for="BowlerFirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerMiddleInit">Middle initial: </label>
+        <input asp-for="BowlerMiddleInit" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerLastName">Last Name: </label>
+        <input asp-for="BowlerLastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerAddress">Address: </label>
+        <input asp-for="BowlerAddress" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerCity">City: </label>
+        <input asp-for="BowlerCity" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerState">State: </label>
+        <input asp-for="BowlerState" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerZip">Zip: </label>
+        <input asp-for="BowlerZip" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerPhoneNumber">Phone Number: </label>
+        <input asp-for="BowlerPhoneNumber" class="form-control" />
+    </div>
+
+    <select class="form-control" asp-for="TeamID" name="TeamID">
+        <option>Select Team Name</option>
+        <option value="1">Marlins</option>
+        <option value="2">Sharks</option>
+        <option value="3">Terrapins</option>
+        <option value="4">Barracudas</option>
+        <option value="5">Dolphins</option>
+        <option value="6">Orcas</option>
+        <option value="7">Manatees</option>
+        <option value="8">Swordfish</option>
+        <option value="9">Huckleberrys</option>
+        <option value="10">Mint Juleps</option>
+
+    </select>
+
+    <div class="float-end">
+        <input class="btn btn-primary" type="submit" value="Submit" />
+    </div>
+    <div asp-validation-summary="All"></div>
+</form>

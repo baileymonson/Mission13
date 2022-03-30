@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Bowler>
+@*main page that lists out all of the bowlers*@
+<h1> Bowlers </h1>
+<div>View our bowlers below</div>
+<div>
+    <a asp-controller="Home" asp-action="BowlerForm" class="btn btn-primary">Add New Bowler</a>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Middle Initial</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Phone</th>
+            <th>Team ID</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.BowlerID</td>
+                <td>@b.BowlerFirstName</td>
+                <td>@b.BowlerMiddleInit</td>
+                <td>@b.BowlerLastName</td>
+                <td>@b.BowlerAddress</td>
+                <td>@b.BowlerCity</td>
+                <td>@b.BowlerState</td>
+                <td>@b.BowlerZip</td>
+                <td>@b.BowlerPhoneNumber</td>
+                <td>@b.TeamID</td>
+
+                <td class="btn btn-sm btn-success"><a asp-controller="Home" asp-action="Edit" asp-route-id="@b.BowlerID">Edit</a></td>
+                <td class="btn btn-sm btn-warning"><a asp-controller="Home" asp-action="Delete" asp-route-id="@b.BowlerID">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+           
